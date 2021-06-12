@@ -1,24 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import PasswordTablePage from "./Pages/PasswordTablePage";
+
+import PasswordCardListPage from "./Pages/PasswordCardListPage";
+
+let defaultPasswordList = [
+  { id: 123, password: "123", website: "BNCC", username: "email@gmail.com" },
+  {
+    id: 124,
+    password: "asmdlkasmd",
+    website: "Binus",
+    username: "binus@gmail.com",
+  },
+  {
+    id: 125,
+    password: "asm dlas",
+    website: "Socs",
+    username: "socs@gmail.com",
+  },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <PasswordCardListPage passwordList={defaultPasswordList} />
+      <PasswordTablePage passwordList={defaultPasswordList} />
+    </>
   );
 }
 
