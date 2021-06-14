@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { connect } from "react-redux";
 
 const PASSWORD_PLACEHOLDER = "**********";
 
@@ -31,6 +32,9 @@ function PassowordCard(props) {
               id="btn-edit"
               className={`btn ${isEdit ? "btn-success" : "btn-secondary"} `}
               onClick={function () {
+                if (isEdit) {
+                  props.modifyPassword(props.id, password, username);
+                }
                 setIsEdit(!isEdit);
                 setIsShowPassword(false);
                 setTime(0);
@@ -90,4 +94,8 @@ function PassowordCard(props) {
   );
 }
 
-export default PassowordCard;
+function bncc(state) {
+  return state;
+}
+const connectToComponent = connect(bncc);
+export default connectToComponent(PassowordCard);

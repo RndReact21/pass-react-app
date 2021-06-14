@@ -2,7 +2,6 @@ import React from "react";
 import PassowordRow from "../Components/PasswordRow";
 
 function PasswordTablePage(props) {
-  const [passwordList, setPasswordList] = React.useState(props.passwordList);
   return (
     <table className="table">
       <thead>
@@ -14,10 +13,11 @@ function PasswordTablePage(props) {
         </tr>
       </thead>
       <tbody>
-        {passwordList.map(function ({ id, password, website, username }) {
+        {props.passwordList.map(function ({ id, password, website, username }) {
           return (
             <PassowordRow
               key={id}
+              id={id}
               password={password}
               website={website}
               username={username}
