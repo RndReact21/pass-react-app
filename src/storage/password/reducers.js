@@ -17,12 +17,13 @@ let defaultPasswordList = [
 ];
 
 function passwordReducer(state = defaultPasswordList, action) {
+  let newState = state;
   switch (action.type) {
     case CREATE_PASSWORD:
-      var newState = [...state, action.payload];
+      newState = [...state, action.payload];
       return newState;
     case UPDATE_PASSWORD:
-      var newState = state.map(function (oldPassword) {
+      newState = state.map(function (oldPassword) {
         if (oldPassword.id === action.payload.id) {
           return action.payload;
         }
@@ -30,7 +31,7 @@ function passwordReducer(state = defaultPasswordList, action) {
       });
       return newState;
     case DELETE_PASSWORD:
-      var newState = state.filter(function (oldPassword) {
+      newState = state.filter(function (oldPassword) {
         return oldPassword.id !== action.payload.id;
       });
       return newState;
