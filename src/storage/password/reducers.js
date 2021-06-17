@@ -1,19 +1,12 @@
-import { UPDATE_PASSWORD, DELETE_PASSWORD, CREATE_PASSWORD } from "./constant";
+import {
+  UPDATE_PASSWORD,
+  DELETE_PASSWORD,
+  CREATE_PASSWORD,
+  GET_PASSWORD_FROM_SERVER,
+} from "./constant";
 
 let defaultPasswordList = [
   { id: 123, password: "123", website: "BNCC", username: "email@gmail.com" },
-  {
-    id: 124,
-    password: "asmdlkasmd",
-    website: "Binus",
-    username: "binus@gmail.com",
-  },
-  {
-    id: 125,
-    password: "asm dlas",
-    website: "Socs",
-    username: "socs@gmail.com",
-  },
 ];
 
 function passwordReducer(state = defaultPasswordList, action) {
@@ -35,6 +28,8 @@ function passwordReducer(state = defaultPasswordList, action) {
         return oldPassword.id !== action.payload.id;
       });
       return newState;
+    case GET_PASSWORD_FROM_SERVER:
+      return action.payload;
     default:
       return state;
   }

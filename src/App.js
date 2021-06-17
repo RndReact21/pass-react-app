@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Switch, NavLink } from "react-router-dom";
 import PasswordTablePage from "./Pages/PasswordTablePage";
 
@@ -6,8 +6,14 @@ import PasswordCardListPage from "./Pages/PasswordCardListPage";
 import GreetingComponent from "./GreetingComponent";
 import { connect } from "react-redux";
 import { updateUser } from "./storage/user/actions";
+import { setPasswords } from "./storage/password/actions";
+import axios from "axios";
 
 function App(props) {
+  useEffect(() => {
+    props.setPasswords("http://localhost:5000/passwords");
+  }, []);
+
   return (
     <>
       {props.user.name}
@@ -59,8 +65,8 @@ function mapStateToProps(state) {
   return state;
 }
 
-// const mapDispatchToProps = {
-//   updateUser,
-// };
+const mapDispatchToProps = {
+  setPasswords: setPasswords,
+};
 
-export default connect(mapStateToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
