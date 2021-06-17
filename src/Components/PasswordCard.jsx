@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { connect } from "react-redux";
 import { updatePassword } from "../storage/password/actions";
+import styles from "./style.module.css";
 
 const PASSWORD_PLACEHOLDER = "**********";
 
@@ -24,7 +25,11 @@ function PassowordCard(props) {
   }, [time]);
 
   return (
-    <div className="card m-2" id="card-1" style={{ width: "28rem" }}>
+    <div
+      className={`card m-2 ${styles.card}`}
+      id="card-1"
+      style={{ width: "28rem" }}
+    >
       <div className="card-body">
         <div className="content">
           <div className="d-flex justify-content-between align-items-center">
