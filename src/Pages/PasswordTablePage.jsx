@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 import PassowordRow from "../Components/PasswordRow";
 
 function PasswordTablePage(props) {
@@ -29,4 +30,8 @@ function PasswordTablePage(props) {
   );
 }
 
-export default PasswordTablePage;
+const mapStateToProps = (state) => {
+  return { passwordList: state.passwords };
+};
+
+export default connect(mapStateToProps)(PasswordTablePage);

@@ -16,23 +16,10 @@ import { updateUser } from "./storage/user/actions";
 
 let defaultPasswordList = [
   { id: 123, password: "123", website: "BNCC", username: "email@gmail.com" },
-  {
-    id: 124,
-    password: "asmdlkasmd",
-    website: "Binus",
-    username: "binus@gmail.com",
-  },
-  {
-    id: 125,
-    password: "asm dlas",
-    website: "Socs",
-    username: "socs@gmail.com",
-  },
 ];
 
 function App(props) {
   const [passwordList, setPasswordList] = useState(defaultPasswordList);
-  console.log(props);
   return (
     <>
       {props.user.name}
@@ -45,21 +32,15 @@ function App(props) {
         <NavLink className="btn btn-info" to="/password/card">
           ke card
         </NavLink>
-        <NavLink className="btn btn-info" to="/">
+        <NavLink className="btn btn-info" exact to="/">
           ke halaman tambah password
         </NavLink>
         <Switch>
           <Route path="/password/card">
-            <PasswordCardListPage
-              passwordList={passwordList}
-              setPasswordList={setPasswordList}
-            />
+            <PasswordCardListPage />
           </Route>
           <Route path="/password/table">
-            <PasswordTablePage
-              passwordList={passwordList}
-              setPasswordList={setPasswordList}
-            />
+            <PasswordTablePage />
           </Route>
           <Route path="/greeting/:abc">
             <GreetingComponent />
@@ -77,8 +58,6 @@ function App(props) {
               email: "peter@gmail.com",
             })
           );
-
-          console.log("tambah password");
         }}
       >
         tambah passoword
@@ -88,6 +67,7 @@ function App(props) {
 }
 
 function mapStateToProps(state) {
+  // console.log(state);
   return state;
 }
 

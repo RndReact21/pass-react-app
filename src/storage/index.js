@@ -1,8 +1,6 @@
 import { combineReducers, createStore } from "redux";
 import userReducer from "./user/reducers";
-function passwordReducer(state = [], action) {
-  return state;
-}
+import passwordReducer from "./password/reducers";
 
 const combinedReducer = combineReducers({
   user: userReducer,

@@ -3,17 +3,7 @@ import React from "react";
 function ComponentFunctionalLifeCycle(props) {
   const [name, setName] = React.useState("");
   const [input, setInput] = React.useState("");
-  React.useEffect(
-    function () {
-      console.log(2);
-      // fetchApi()
-      //   console.log("from didMount + didUpdate");
-      //   return function () {
-      //     console.log("from unmount");
-      //   };
-    },
-    [name, input]
-  );
+  React.useEffect(function () {}, [name, input]);
   console.log("from render");
   return (
     <div>

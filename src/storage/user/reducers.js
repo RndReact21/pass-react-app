@@ -5,7 +5,6 @@ function userReducer(
   },
   action
 ) {
-  console.log(action);
   switch (action.type) {
     case "create":
       // insert user
